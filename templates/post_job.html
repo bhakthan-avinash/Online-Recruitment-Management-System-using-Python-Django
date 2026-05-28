@@ -2,16 +2,37 @@
 
 {% block content %}
 
-<h1>Post Job</h1>
+<div class="row justify-content-center">
 
-<form method="POST">
+    <div class="col-md-8">
 
-    {% csrf_token %}
+        <div class="card shadow p-4">
 
-    {{ form.as_p }}
+            <h1 class="mb-4 text-center">
 
-    <button type="submit">Post Job</button>
+                Post a Job
 
-</form>
+            </h1>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button type="submit"
+                        class="btn btn-warning w-100">
+
+                    Post Job
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
 
 {% endblock %}

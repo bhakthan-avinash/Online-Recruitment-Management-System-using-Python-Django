@@ -14,5 +14,6 @@ class JobForm(forms.ModelForm):
             'company',
             'location',
             'salary',
-            'description'
+            'description',
+            'skills_required'
         ]

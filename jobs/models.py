@@ -18,6 +18,10 @@ class Job(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE
     )
+    skills_required = models.TextField(
+    null=True,
+    blank=True
+    )
     created_at = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
@@ -37,6 +41,18 @@ class Application(models.Model):
     upload_to='resumes/',
     null=True,
     blank=True
+    )
+    candidate_skills = models.TextField(
+    null=True,
+    blank=True
+    )
+
+    match_score = models.IntegerField(
+    default=0
+    )
+    status = models.CharField(
+    max_length=20,
+    default='Pending'
     )
 
     applied_at = models.DateTimeField(auto_now_add=True)

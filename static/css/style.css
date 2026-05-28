@@ -62,3 +62,12 @@ button {
 
     cursor: pointer;
 }
+form {
+
+    margin-bottom: 20px;
+}
+
+input {
+
+    width: 250px;
+}

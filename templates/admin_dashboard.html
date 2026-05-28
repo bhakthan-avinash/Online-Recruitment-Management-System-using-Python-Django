@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4">
+
+    Admin Dashboard
+
+</h1>
+
+
+<h2>All Jobs</h2>
+
+<hr>
+
+{% for job in jobs %}
+
+<div class="card mb-3">
+
+    <div class="card-body">
+
+        <h3>{{ job.title }}</h3>
+
+        <p>{{ job.company }}</p>
+
+        <p>{{ job.location }}</p>
+
+        <a href="/delete-job/{{ job.id }}/"
+           class="btn btn-danger">
+
+           Delete Job
+
+        </a>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+
+<h2 class="mt-5">
+
+    Applications
+
+</h2>
+
+<hr>
+
+{% for application in applications %}
+
+<div class="card mb-3">
+
+    <div class="card-body">
+
+        <h4>
+
+            {{ application.candidate.username }}
+
+        </h4>
+
+        <p>
+
+            Applied for:
+            {{ application.job.title }}
+
+        </p>
+
+        {% if application.resume %}
+
+        <a href="{{ application.resume.url }}"
+           class="btn btn-primary">
+
+           View Resume
+
+        </a>
+
+        {% endif %}
+
+        <a href="/delete-application/{{ application.id }}/"
+           class="btn btn-danger">
+
+           Delete Application
+
+        </a>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}

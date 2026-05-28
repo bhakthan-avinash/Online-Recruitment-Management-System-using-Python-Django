@@ -2,16 +2,37 @@
 
 {% block content %}
 
-<h1>Register</h1>
+<div class="row justify-content-center">
 
-<form method="POST">
+    <div class="col-md-6">
 
-    {% csrf_token %}
+        <div class="card shadow p-4 mt-4">
 
-    {{ form.as_p }}
+            <h1 class="text-center mb-4">
 
-    <button type="submit">Register</button>
+                Register
 
-</form>
+            </h1>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button type="submit"
+                        class="btn btn-success w-100">
+
+                    Register
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
 
 {% endblock %}

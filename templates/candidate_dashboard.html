@@ -2,39 +2,75 @@
 
 {% block content %}
 
-<h1>Candidate Dashboard</h1>
+<h1 class="mb-4">
 
-<h2>Applied Jobs</h2>
+    Candidate Dashboard
 
-<hr>
+</h1>
+
 
 {% for application in applications %}
 
-<div class="job-card">
+<div class="card shadow-sm mb-4">
 
-    <h2>{{ application.job.title }}</h2>
+    <div class="card-body">
 
-    <p>{{ application.job.company }}</p>
+        <h3 class="card-title">
 
-    <p>{{ application.job.location }}</p>
+            {{ application.job.title }}
 
-    <p>{{ application.job.salary }}</p>
-    <p>Applied Successfully</p>
-    {% if application.resume %}
+        </h3>
 
-    <a href="{{ application.resume.url }}">
+        <h5 class="text-muted">
 
-        View Resume
+            {{ application.job.company }}
 
-    </a>
+        </h5>
 
-    {% endif %}
+        <p>
+
+            📍 {{ application.job.location }}
+
+        </p>
+
+        <p>
+
+            💰 {{ application.job.salary }}
+
+        </p>
+
+        <div class="mb-3">
+
+            <span class="badge bg-success">
+
+                Applied Successfully
+
+            </span>
+
+        </div>
+
+        {% if application.resume %}
+
+        <a href="{{ application.resume.url }}"
+           class="btn btn-primary">
+
+           View Resume
+
+        </a>
+
+        {% endif %}
+
+    </div>
 
 </div>
 
 {% empty %}
 
-<p>No Applications Yet</p>
+<div class="alert alert-warning">
+
+    No Applications Yet
+
+</div>
 
 {% endfor %}
 
