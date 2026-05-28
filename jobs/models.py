@@ -18,8 +18,29 @@ class Job(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE
     )
-
     created_at = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.title
+class Application(models.Model):
+
+    candidate = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
+
+    job = models.ForeignKey(
+        Job,
+        on_delete=models.CASCADE
+    )
+    resume = models.FileField(
+    upload_to='resumes/',
+    null=True,
+    blank=True
+    )
+
+    applied_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+
+        return f"{self.candidate.username} applied for {self.job.title}"

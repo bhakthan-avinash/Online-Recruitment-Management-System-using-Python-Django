@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Recruiter Dashboard</h1>
+
+<a href="/post-job/">
+
+    <button>Post New Job</button>
+
+</a>
+
+<hr>
+
+{% for job in jobs %}
+
+<div class="job-card">
+
+    <h2>{{ job.title }}</h2>
+
+    <p>{{ job.company }}</p>
+
+    <p>{{ job.location }}</p>
+
+    <p>{{ job.salary }}</p>
+
+    <a href="/delete-job/{{ job.id }}/">
+
+        <button>Delete</button>
+
+    </a>
+
+</div>
+
+{% empty %}
+
+<p>No Jobs Posted Yet</p>
+
+{% endfor %}
+
+{% endblock %}

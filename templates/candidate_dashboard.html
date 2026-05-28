@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Candidate Dashboard</h1>
+
+<h2>Applied Jobs</h2>
+
+<hr>
+
+{% for application in applications %}
+
+<div class="job-card">
+
+    <h2>{{ application.job.title }}</h2>
+
+    <p>{{ application.job.company }}</p>
+
+    <p>{{ application.job.location }}</p>
+
+    <p>{{ application.job.salary }}</p>
+    <p>Applied Successfully</p>
+    {% if application.resume %}
+
+    <a href="{{ application.resume.url }}">
+
+        View Resume
+
+    </a>
+
+    {% endif %}
+
+</div>
+
+{% empty %}
+
+<p>No Applications Yet</p>
+
+{% endfor %}
+
+{% endblock %}
