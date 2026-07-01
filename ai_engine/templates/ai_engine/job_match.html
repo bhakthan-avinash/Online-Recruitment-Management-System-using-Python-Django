@@ -1,0 +1,20 @@
+<h2>Job Match Engine</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    
+    <label>Resume Text:</label><br>
+    <textarea name="resume_text" rows="10" cols="80"></textarea><br><br>
+
+    <label>Job Description:</label><br>
+    <textarea name="job_description" rows="10" cols="80"></textarea><br><br>
+
+    <button type="submit">Check Match</button>
+</form>
+
+{% if result %}
+<h3>Result</h3>
+<p>Match Score: {{ result.score }}%</p>
+<p>Matched Skills: {{ result.matched }}</p>
+<p>Missing Skills: {{ result.missing }}</p>
+{% endif %}
