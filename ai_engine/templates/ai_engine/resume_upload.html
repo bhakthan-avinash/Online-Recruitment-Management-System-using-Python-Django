@@ -1,0 +1,12 @@
+<h2>Upload Resume</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Analyze Resume</button>
+</form>
+
+{% if analysis %}
+    <h3>AI Analysis Result</h3>
+    <pre>{{ analysis }}</pre>
+{% endif %}

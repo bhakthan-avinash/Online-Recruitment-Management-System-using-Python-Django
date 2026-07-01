@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'jobs',
-    
+    'ai_engine',
 ]
 
 MIDDLEWARE = [
