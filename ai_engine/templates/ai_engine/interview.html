@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Interview Agent</title>
+</head>
+<body>
+
+    <h2>AI Interview Agent</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Enter Role:</label><br>
+        <input type="text" name="role" placeholder="Python Developer"><br><br>
+
+        <label>Your Answer:</label><br>
+        <textarea name="answer" rows="8" cols="60"></textarea><br><br>
+
+        <button type="submit">Start Interview</button>
+    </form>
+
+    {% if question %}
+        <h3>Interview Question:</h3>
+        <p>{{ question }}</p>
+    {% endif %}
+
+    {% if result %}
+        <h3>AI Evaluation:</h3>
+        <pre>{{ result }}</pre>
+    {% endif %}
+
+</body>
+</html>
